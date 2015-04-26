@@ -1,0 +1,34 @@
+body{
+	//background-color: black;
+}
+#playList_container{
+	float: left;
+	text-align: center;
+	width: 200px;
+	color:white;
+}
+
+#userInput_container{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10vh;
+}
+
+li{
+	list-style-type: none;
+	text-align: center;
+	padding: 2px;
+	color: gray;
+}
+
+iframe {
+	margin-top: 50px;
+	margin-left: 100px;
+}
+
+li:hover {
+	color: white;
+}
+
+
