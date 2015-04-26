@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="youtube-app">
+<head>
+	<title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="theme.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body ng-controller="SimpleController">
+	<div id="controller" >
+    <!--text box that -->
+    <div id='userInput_container'>
+        <input type="text" placeHolder='Enter YouTube URL' data-ng-model="newUrl" />
+        <input type="text" placeHolder='Enter Name' data-ng-model="newName" />
+        <button ng-click="addStartName()">Add to my play list</button>
+    </div>
+    <div id='playList_container'>
+        <h3>My play list<h3>
+        <ul>
+            <li ng-click="openCategory($event, his.id)"  ng-repeat="his in historys | orderBy:'id'"> {{his.name}}</li>
+        </ul>
+</div>
+    <div >
+        <iframe id="iframe_player" width="640" height="360" 
+        src= "{{$scope.yt.videoid}}" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="youtube.js"></script>
+	<script src="listApp.js"></script>
+</body>
+</html>
