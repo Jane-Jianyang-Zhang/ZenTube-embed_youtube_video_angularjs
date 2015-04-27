@@ -1,3 +1,7 @@
+<!--ZenTube
+a simple website used for stress reducing therapy by looping relaxing music vedios 
+of clients choice in the playlist at a calming circumstance.
+embed a youtube video with angular js to create a playlist of clients choice loop a chosen video defaultly-->
 <!DOCTYPE>
 <html>
 
@@ -5,12 +9,13 @@
   <title>ZenTube</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
   <script src="application.js"></script>
-   <link rel="stylesheet" type="text/css" href="theme.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="theme.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body ng-app="YouTubeApp" ng-controller="YouTubeCtrl">
-
+	<!--the playlist container
+	by clicking on each item to switch video-->
 	<div id='playList_container' >
 		<h3>My play list<h3>
 		<ul>
@@ -18,14 +23,21 @@
 		</ul>
 
 	</div>
-
+	
+	<!--controllers
+	ask client for video id and name
+	add one video to the play list
+	video id is required and will be auto filled.
+	No duplicates allowed.
+	-->
 	<div id="controller_container">
 		<form>
 		Video Name: <input type="text" ng-model="name" placeHolder= "Enter video name" >
 		Video ID: <input type="text" ng-model="yt.videoid" placeHolder="Enter YouTube ID">
 		<button ng-click="addStartName()">Add to my play list</button>
 		</form>
-
+		
+		<!--youtube player-->
 		<div id="youtube">
 		<youtube  width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>  
 		<div>
