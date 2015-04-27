@@ -2,11 +2,12 @@
 var ytApp = angular.module('YouTubeApp', []);
 
 ytApp.controller("YouTubeCtrl", function($scope) {
-    $scope.historys=["VG3yzSuM9zM", "9qvglWAHDak"];
+    $scope.historys=[];
 
     $scope.addStartName = function(){
-      //alert($scope.yt.videoid);
-      $scope.historys.push($scope.yt.videoid);
+      if ($scope.historys.indexOf($scope.yt.videoid) === -1) {
+        $scope.historys.push({id: $scope.yt.videoid, name: $scope.name});
+      };
     }
 
     $scope.openCategory = function($event, id) {
@@ -18,7 +19,7 @@ ytApp.controller("YouTubeCtrl", function($scope) {
     $scope.yt = {
       width: 600, 
       height: 480, 
-      videoid: "VG3yzSuM9zM",
+      videoid: "YD5KC01rrAA",
     };
 
   });
@@ -54,7 +55,9 @@ ytApp.directive('youtube', function($window) {
             color: "white",
             iv_load_policy: 3,
             showinfo: 1,
-            controls: 1
+            loop: 1,
+            controls: 1,
+            playlist:scope.videoid
           },
 
           height: scope.height,
@@ -67,7 +70,7 @@ ytApp.directive('youtube', function($window) {
         if (newValue == oldValue) {
           return;
         }
-
+       
         player.cueVideoById(scope.videoid);
        
       }); 
