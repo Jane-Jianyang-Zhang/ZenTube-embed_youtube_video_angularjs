@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>YouTube Directive Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+  <script src="application.js"></script>
+   <link rel="stylesheet" type="text/css" href="theme.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body ng-app="YouTubeApp" ng-controller="YouTubeCtrl">
+
+	<div id='playList_container' >
+		<h3>My play list<h3>
+		<ul>
+			<li ng-click="openCategory($event, his)" ng-repeat="his in historys ">{{his}}</li>
+		</ul>
+
+	</div>
+
+	<div id="controller_container">
+
+		Width:<input type="text" ng-model="yt.width">
+		Height:<input type="text" ng-model="yt.height">
+		Videoid:<input type="text" ng-model="yt.videoid">
+		<button ng-click="addStartName()">Add to my play list</button>
+
+		<br />
+		<div id="youtube">
+		<youtube  width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>  
+		<div>
+	</div>
+</body>
+</html>
