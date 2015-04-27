@@ -1,15 +1,21 @@
-
+/*
+JavaScritp file for ZenTube.
+Jane Zhang 4/26/2015
+Source consulted: http://blog.oxrud.com/posts/creating-youtube-directive/ "Creating a YouTube AngularJS Directive"
+*/
 var ytApp = angular.module('YouTubeApp', []);
 
 ytApp.controller("YouTubeCtrl", function($scope) {
     $scope.historys=[];
-
+    
+    // add a new video to the playlist if the video is not already in the list
     $scope.addStartName = function(){
       if ($scope.historys.indexOf($scope.yt.videoid) === -1) {
         $scope.historys.push({id: $scope.yt.videoid, name: $scope.name});
       };
     }
 
+    // load a new video by click on its name/ID
     $scope.openCategory = function($event, id) {
         $scope.yt.videoid = id;
         //alert($scope.yt.videoid);
@@ -36,6 +42,7 @@ ytApp.directive('youtube', function($window) {
 
     template: '<div></div>',
 
+    // load the youtube player
     link: function(scope, element) {
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -65,7 +72,8 @@ ytApp.directive('youtube', function($window) {
           videoId: scope.videoid, 
         });
       }
-
+    
+      // when the videoid input is changes, load the video correspond to that ID
       scope.$watch('videoid', function(newValue, oldValue) {
         if (newValue == oldValue) {
           return;
@@ -74,7 +82,8 @@ ytApp.directive('youtube', function($window) {
         player.cueVideoById(scope.videoid);
        
       }); 
-
+    
+      // dynamically change the height and width of the player.
       scope.$watch('height + width', function(newValue, oldValue) {
         if (newValue == oldValue) {
           return;
