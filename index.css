@@ -1,0 +1,37 @@
+body{
+	color: white;
+}
+#playList_container{
+	float: right;
+	text-align: center;
+	width: 200px;
+	color:white;
+}
+
+#controller_container{
+	text-align: center;
+	margin-top:10vh;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 150px;
+}
+
+li{
+	list-style-type: none;
+	text-align: center;
+	padding: 2px;
+	color: gray;
+}
+
+#youtube {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	margin-top:20px;
+}
+
+li:hover {
+	color: white;
+}
+
+
